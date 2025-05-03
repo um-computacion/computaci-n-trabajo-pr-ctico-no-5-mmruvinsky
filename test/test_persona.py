@@ -16,6 +16,17 @@ class TestPersona(unittest.TestCase):
            expected =  "Persona: DNI: 12345678 Nombre: Juan Apellido: Pérez Pensamientos: 0 Ultima Idea: <no penso en nada>"
            self.assertEqual(str(persona), expected)
 
+       def test_pensar_incrementa_contador(self):
+            persona = Persona("Juan", "Pérez", "12345678")
+            persona.pensar("Hola mundo")
+            self.assertEqual(persona.pensamientos, 1)
+
+       def test_pensar_actualiza_ultima_idea(self):
+            persona = Persona("Juan", "Pérez", "12345678")
+            persona.pensar("Hola mundo")
+            self.assertEqual(persona.ultima_idea, "Hola mundo")
+  
+
 if __name__ == "__main__":
     unittest.main()
 
