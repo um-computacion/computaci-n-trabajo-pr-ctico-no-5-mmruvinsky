@@ -2,10 +2,11 @@
 
 class Persona:
        
-       def __init__(self, nombre, apellido, dni, pensamientos=None, ultima_idea=None):
+       def __init__(self, nombre, apellido, dni, fecha_nacimiento, pensamientos=None, ultima_idea=None):
            self.nombre = nombre
            self.apellido = apellido
            self.dni = dni
+           self.fecha_nacimiento = fecha_nacimiento
            self.pensamientos = 0
            self.ultima_idea = "<no penso en nada>"
 
@@ -16,7 +17,7 @@ class Persona:
 
 
        def __repr__(self):
-              return f"Persona: DNI: {self.dni} Nombre: {self.nombre} Apellido: {self.apellido} Pensamientos: {self.pensamientos} Ultima Idea: {self.ultima_idea}"
+              return f"Persona: DNI: {self.dni} Nombre: {self.nombre} Apellido: {self.apellido} Fecha de Nacimiento: {self.fecha_nacimiento} Pensamientos: {self.pensamientos} Ultima Idea: {self.ultima_idea}"
        
 """Clase persona que representa a una persona con nombre, apellido, dni, pnesamientos y ultima idea.
     La clase tiene un metodo pensar que incrementa el contador de pensamientos y actualiza la ultima idea."""
