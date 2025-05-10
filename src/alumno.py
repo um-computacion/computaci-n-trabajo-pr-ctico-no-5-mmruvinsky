@@ -1,4 +1,4 @@
-from src.persona import Persona
+from persona import Persona
 
 class Alumno(Persona):
        
