@@ -7,6 +7,12 @@ class Profesor(Persona):
            self.sueldo = sueldo
            self.materia = materia
 
+           if not isinstance(sueldo, (int, float)):
+                raise TypeError("Formato incorrecto: El sueldo debe ser un número")
+           
+           if sueldo < 0:
+                raise ValueError("El sueldo no puede ser negativo")
+
        def __repr__(self):
            return f"Profesor: DNI: {self.dni} Nombre: {self.nombre} Apellido: {self.apellido} Fecha de Nacimiento: {self.fecha_nacimiento} Sueldo: {self.sueldo} Materia/s: {self.materia}"
        

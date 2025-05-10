@@ -16,3 +16,18 @@ class TestProfesor(unittest.TestCase):
            profesor = Profesor("Juan", "Pérez", "12345678", "27/01/2004", 50000, "Geografia")
            expected = "Profesor: DNI: 12345678 Nombre: Juan Apellido: Pérez Fecha de Nacimiento: 27/01/2004 Sueldo: 50000 Materia/s: Geografia"
            self.assertEqual(str(profesor), expected)
+
+class TestProfesorCasosEdge(unittest.TestCase):
+    """Test para casos edge de la clase Profesor."""
+    
+    def test_sueldo_invalido(self):
+        """Test para verificar validaciones del sueldo"""
+        # Sueldo negativo
+        with self.assertRaises(ValueError) as e:
+            Profesor("Juan", "Pérez", "12345678", "27/01/2004", -50000, "Geografia")
+        self.assertEqual(str(e.exception), "El sueldo no puede ser negativo")
+        
+        # Sueldo no numérico
+        with self.assertRaises(TypeError) as e:
+            Profesor("Juan", "Pérez", "12345678", "27/01/2004", "cinquenta mil", "Geografia")
+        self.assertEqual(str(e.exception), "Formato incorrecto: El sueldo debe ser un número")
